@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<br>
+<ul>
+{% for status in status_list %}
+    {% if status.document %}
+        <li><div class="none">
+        {% if status.document_name %}
+            <p><a href="{{ status.document.url }}"class="button button_document" role="button">{{ status.document_name }}</a></p>
+        {% else %}
+            <p><a href="{{ status.document.url }}" class="button button_document" role="button">Unnamed</a></p>
+        {% endif %}
+        <p>{{status.machine }}</p>
+        <p>{{ status.time }}</p>
+    {% endif %}</div></li>
+{%endfor%}
+</ul>
+{% endblock %}

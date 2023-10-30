@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<ul>
+    {% for item in scan_list %}
+    <div class="none"><li>
+        <p>{{item.time}}</p>
+        <p>{{user.get_username}}</p>
+        {% for machine in machine %}
+        {% if machine.tag_id == item.tag %}
+        <p>{{machine.machine_id}}</p>
+        <a href="{% url 'machine_detail' machine.pk%}" class="button button2 btn-" tabindex="-1" role="button" aria-disabled="true">
+            Details</a>
+        {% endif %}
+        {% endfor %}
+        </div>
+    {% endfor %}
+    </ul>
+{% endblock content %}

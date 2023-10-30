@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<br>
+<h2>{{ object.name }}</h2>
+<ul>
+    <p>{{ object.plant }}</p>
+    <p>{{ object.line }}</p>
+    <p>{{ object.machine_id }}</p>
+</ul>
+<hr>
+<ul>
+{% for status in status %}
+    {% if status.machine == machine %}
+    <li><div class="none">
+    <p>{{status.time}}</p>
+    <p>WORKING - {{ status.is_working }}</p>
+    <p>{{ status.description }}</p>
+    <p>{% if status.document %}
+        {% if status.document_name %}
+        <a href="{{ status.document.url }}" class="button button_document" role="button">{{ status.document_name }}</a>
+        {% else %}
+        <a href="{{ status.document.url }}" class="button button_document" role="button">Unnamed</a>
+        {% endif %}
+        {% else %}
+        <p class="button button_document" role="button">NO DOCUMENT</p>
+    {% endif %}</p></div>
+    {% endif %}
+</li>
+{% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+<script type="text/javascript">
+        function codeAddress() {
+            window.location.href = {% url 'my_action_view' %};
+        }
+        </script>
+    </head>
+    <body onload="codeAddress();">
+    <div class="content1">
+        <h5>Scanning...</h5>
+        <video autoplay loop muted src="{% static 'loading.jpeg' %}" width="90" height="60">
+        </video>
+    </div>
+    </body>
+{% endblock content %}

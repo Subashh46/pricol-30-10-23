@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+<ul>
+    <br>
+{% for status in status_list %}
+<li>
+    {% if status.is_working == "Yes" %}
+    <div class="working">
+    <h4 style="color:MediumSeaGreen">{{ status.machine }}</h4>
+    <p>{{ status.time }}</p>
+    <p>WORKING - {{ status.is_working }}</p>
+    <p>{{ status.description }}</p>
+    <p>{{ status.username }}</p>
+    <p>{% if status.document %}
+        {% if status.document_name %}
+        <a href="{{ status.document.url }}" class="button button_document" role="button" >{{ status.document_name }}</a>
+        {% else %}
+        <a href="{{ status.document.url }}" class="button button_document" role="button">Unnamed</a>
+        {% endif %}
+        {% else %}
+        <p class="button button_document" role="button">NO DOCUMENT</p>
+        {% endif %}</p></div>
+    {% else %}
+    <div class="not_working">
+    <h4 style="color:Tomato;">{{ status.machine }}</h4>
+    <p>{{ status.time }}</p>
+    <p>WORKING - {{ status.is_working }}</p>
+    <p>{{ status.description }}</p>
+    <p>{{ status.username }}</p>
+    <p>{% if status.document %}
+        {% if status.document_name %}
+        <a href="{{ status.document.url }}" class="button button_document" role="button" >{{ status.document_name }}</a>
+        {% else %}
+        <a href="{{ status.document.url }}" class="button button_document" role="button">Unnamed</a>
+        {% endif %}
+        {% else %}
+        <p class="button button_document" role="button">NO DOCUMENT</p>
+        {% endif %}</p></div>
+    {% endif %}
+</li>
+{%endfor%}
+</ul>
+{% endblock %}

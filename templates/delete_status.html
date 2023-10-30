@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="position-absolute top-50 start-50 translate-middle">
+<form action="" method="post">
+    {% csrf_token %}
+    <p class="fs-2">Are you sure, you wanna delete?</p>
+    <input type="submit" class="btn btn-danger" value="Delete">
+</form>
+</div>
+{% endblock %}

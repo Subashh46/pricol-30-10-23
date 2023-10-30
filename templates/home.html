@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<br>
+{% for plant in plant_list %}
+    <ul>
+        <a href="{% url 'plant_detail' plant.pk%}" class="button button_machine" tabindex="-1" role="button" aria-disabled="true">
+            {{ plant.name }}</a>
+    </ul>
+{% endfor %}
+{% endblock %}
+

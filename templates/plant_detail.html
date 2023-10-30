@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<br>
+<h2>{{ object.name }}</h2>
+<br>
+{% for line in line %}
+    {% if line.plant == plant %}
+    <ul><a href="{% url 'line_detail' line.pk%}" class="button button_machine" tabindex="-1" role="button" aria-disabled="true">
+            {{ line.name }}</a></ul>
+    {% endif %}
+{% endfor %}
+{% endblock %}
